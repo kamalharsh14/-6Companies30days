@@ -1,3 +1,5 @@
+//Problem Link: https://practice.geeksforgeeks.org/problems/print-anagrams-together/1/
+
 import java.util.*;
 class Anagrams{
     public static void main(String[] args) {
