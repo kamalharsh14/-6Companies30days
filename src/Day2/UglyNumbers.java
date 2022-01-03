@@ -9,8 +9,7 @@ public class UglyNumbers {
         Scanner in = new Scanner(System.in);
         UglyNumbers ob = new UglyNumbers();
         int n = in.nextInt();
-        long num = ob.getNthUglyNo(n);
-        System.out.println(num);
+        System.out.println(ob.getNthUglyNo(n));
         in.close();
     }
 
