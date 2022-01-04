@@ -8,11 +8,24 @@ public class GreatestCommonDivisorString{
         Scanner in = new Scanner(System.in);
         String str1 = in.nextLine();
         String str2 = in.nextLine();
-        System.out.println(ob.gcd(str1, str2));
+        System.out.println(ob.gcdOfStrings(str1, str2));
         in.close();
     }
 
-    String gcd(String str1, String str2){
-        return"";
+    public String gcdOfStrings(String str1, String str2) {
+        if (str1.length() < str2.length()) {
+            return gcdOfStrings(str2, str1);
+        }
+        else if (str1.startsWith(str2) == false) {
+            return "";
+        }
+ 
+        else if (str2.isEmpty()) {
+            return str1;
+        }
+        else {
+            return gcdOfStrings(str1.substring(str2.length()),
+                       str2);
+        }
     }
 }
