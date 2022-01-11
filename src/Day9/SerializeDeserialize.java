@@ -64,6 +64,7 @@ public class SerializeDeserialize {
 
         Node ans=deserialize(A);
         node.inOrder(ans);
+        in.close();
     }
 
     static int index=0;
