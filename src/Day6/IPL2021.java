@@ -18,21 +18,33 @@ public class IPL2021 {
         in.close();
     }
 
-    public ArrayList<Integer> max_of_subarrays(int [] arr, int n, int k){
-        if(n == 0)
-        return null;
-        else{
-            ArrayList<Integer> res = new ArrayList<>();
-            for(int i = 0 ; i < n - k + 1; i ++){
-                int max = arr[i];
-                for(int j = i ; j < k+i ; j ++){
-                    if(arr[j] > max){
-                        max = arr[j];
-                    }
-                }
-                res.add(max);
+    public ArrayList<Integer> max_of_subarrays(int[] arr, int n, int k) {
+
+        ArrayList<Integer> ans = new ArrayList<>();
+        Stack<Integer> stack = new Stack<>();
+        int[] brr = new int[n];
+
+        stack.push(arr.length - 1);
+        brr[arr.length - 1] = arr.length;
+
+        for (int i = arr.length - 2; i >= 0; i--) {
+            while (stack.size() > 0 && arr[i] >= arr[stack.peek()]) {
+                stack.pop();
             }
-            return res;
+            if (stack.size() == 0) {
+                brr[i] = arr.length;
+            } else {
+                brr[i] = stack.peek();
+            }
+            stack.push(i);
         }
+        for (int i = 0; i <= arr.length - k; i++) {
+            int j = i;
+            while (brr[j] < i + k) {
+                j = brr[j];
+            }
+            ans.add(arr[j]);
+        }
+        return ans;
     }
 }
