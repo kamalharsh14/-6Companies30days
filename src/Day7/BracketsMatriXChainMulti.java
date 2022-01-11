@@ -55,9 +55,7 @@ public class BracketsMatriXChainMulti {
             }
         }
         name = 'A';
-        System.out.print("Optimal Parenthesization is : ");
         printParenthesis(1, n - 1, n, bracket);
-        System.out.print("\nOptimal Cost is : " + m[1][n - 1]);
     }
 }
 
