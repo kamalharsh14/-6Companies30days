@@ -15,6 +15,7 @@ public class IPL2021 {
         ArrayList<Integer> stats = new ArrayList<>();
         stats = ob.max_of_subarrays(arr, n , k);
         System.out.println(stats);
+        in.close();
     }
 
     public ArrayList<Integer> max_of_subarrays(int [] arr, int n, int k){
