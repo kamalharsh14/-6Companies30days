@@ -2,60 +2,86 @@
 
 package Day7;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
-public class BracketsMatriXChainMulti {
-    
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int arr[] = new int[n];
-        for(int i = 0 ; i < n ; i ++){
-            arr[i] = in.nextInt();
+
+class BracketsMatriXChainMulti {
+
+    static class Pair{
+        int cost;
+        String format;
+
+        Pair(int cost, String format){
+            this.cost = cost;
+            this.format = format;
         }
-        matrixChainOrder(arr, n);
-        in.close();
     }
 
-    static char name;
-
-    static void printParenthesis(int i, int j, int n, int[][] bracket){
-        if (i == j)
-        {
-        System.out.print(name++);
-        return;
-        }
-        System.out.print("(");
-        printParenthesis(i, bracket[i][j], n, bracket);
-        printParenthesis(bracket[i][j] + 1, j, n, bracket);
-        System.out.print(")");
+    public static String getFormat(String mat1, String mat2){
+        return "(" + mat1 + mat2 + ")";
     }
 
-    static void matrixChainOrder(int p[], int n){
-        int[][] m = new int[n][n];
-        int[][] bracket = new int[n][n];
+    public static Pair matMult(int[] mat, Pair[][] dp, int l, int r){
 
-        for (int i = 1; i < n; i++){
-            m[i][i] = 0;
+        if(r-l == 2){
+            char mat1 = (char)(65+l);
+            char mat2 = (char)(65+r-1);
+            String format = getFormat(Character.toString(mat1), Character.toString(mat2));
+            return new Pair(mat[l]*mat[l+1]*mat[r], format);
         }
-        for (int L = 2; L < n; L++){
-            for (int i = 1; i < n - L + 1; i++) 
-            {
-                int j = i + L - 1;
-                m[i][j] = Integer.MAX_VALUE;
-                for (int k = i; k <= j - 1; k++)
-                {
-                    int q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
-                    if (q < m[i][j]) 
-                    {
-                        m[i][j] = q;
-                        bracket[i][j] = k;
-                    }
-                }
+
+        if(dp[l][r] != null){
+            return dp[l][r];
+        }
+
+        int min = Integer.MAX_VALUE, cost;
+        String format = "";
+        String left = Character.toString((char)(l+65)), mat1;
+        String right = Character.toString((char)(r+65-1)), mat2;
+        for(int m=l+1; m<r; m++){
+
+            mat1=left; mat2=right; cost=0;
+
+            if(m-l > 1){
+                Pair p = matMult(mat, dp, l, m);
+                cost += p.cost;
+                mat1 = p.format;
+            }
+            if(r-m > 1){
+                Pair p = matMult(mat, dp, m, r);
+                cost += p.cost;
+                mat2 = p.format;
+            }
+
+            cost += mat[l] * mat[m] * mat[r];
+            if(cost < min){
+                min = cost;
+                format = getFormat(mat1, mat2);
             }
         }
-        name = 'A';
-        printParenthesis(1, n - 1, n, bracket);
+
+
+        return dp[l][r] = new Pair(min, format);
+    }
+
+    public static void main (String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine());
+        while(t-- > 0){
+            int n = Integer.parseInt(br.readLine());
+            String[] input = br.readLine().split("\\s");
+
+            int[] mat = new int[n];
+            Pair[][] dp = new Pair[n][n];
+            for(int i=0; i<n; i++){
+                mat[i] = Integer.parseInt(input[i]);
+            }
+
+            if(mat.length == 2)
+                System.out.println("A");
+            else
+                System.out.println(matMult(mat, dp, 0, n-1).format);
+        }
     }
 }
-
