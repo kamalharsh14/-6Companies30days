@@ -12,6 +12,7 @@ public class DecodetheString {
     }
 
     String decode(String str){
+        String res = "";
         return res;
     }
 }
