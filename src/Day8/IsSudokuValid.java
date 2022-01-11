@@ -3,94 +3,33 @@
 package Day8;
 import java.util.*;
 
-    class Node{
-
-        Node head;
-        int data;
-        Node left,right;
-    
-        Node(int data){
-    
-            this.data=data;
-            left=null;
-            right=null;
-    
-        }
-    
-        public Node createTree(int[] arr, Node root, int i) {
-            if (i < arr.length) {
-                root = new Node(arr[i]);
-    
-                // insert left child
-                root.left = createTree(arr, root.left,
-                        2 * i + 1);
-    
-                // insert right child
-                root.right = createTree(arr, root.right,
-                        2 * i + 2);
+public class IsSudokuValid {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[][] mat = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                mat[i][j] = in.nextInt();
             }
-            return root;
-    
-    
         }
-    
-        public void inOrder(Node root){
-            if(root == null) return ;
-    
-            inOrder(root.left);
-            System.out.print(root.data+" ");
-            inOrder(root.right);
-        }
-    
-    
+        int ans = isValid(mat);
+        System.out.println(ans);
+        in.close();
     }
-    
-    public class IsSudokuValid{
-        public static void main(String[] args) {
-            Scanner in=new Scanner(System.in);
-            int n=in.nextInt();
-            int[] ar =new int[n];
-            for(int i=0;i<n;i++) ar[i]=in.nextInt();
-    
-            ArrayList<Integer> A=new ArrayList<>();
-    
-            Node node=new Node(0);
-            Node head=node.createTree(ar,node.head,0);
-            node.inOrder(head);
-    
-            serialize(head,A);
-    
-            Node ans=deserialize(A);
-            node.inOrder(ans);
-            in.close();
-        }
-    
-        static int index=0;
-    
-        public static Node deserialize(ArrayList<Integer> A) {
-    
-    
-            if (index >= A.size() || A.get(index) == -1) {
-                index++;
-                return null;
+
+    private static int isValid(int[][] mat) {
+        HashSet<String> set = new HashSet<>();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                int val = mat[i][j];
+                if (val != 0) {
+                    if (!set.add(val + "found in row " + i) || !set.add(val + "found in column " + j) || !set.add(val + "found in sub box " + i / 3 + "-" + j / 3))
+                        return 0;
+                }
             }
-    
-            Node root = new Node(A.get(index++));
-            root.left = deserialize(A);
-            root.right = deserialize(A);
-    
-            return root;
         }
-    
-    
-        public static void serialize(Node root, ArrayList<Integer> A) {
-            if(root!=null){
-                A.add(root.data);
-            }else{
-                A.add(-1);
-                return;
-            }
-            serialize(root.left,A);
-            serialize(root.right,A);
-        }
+
+        return 1;
+    }
 }
