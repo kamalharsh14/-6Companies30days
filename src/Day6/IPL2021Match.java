@@ -1,11 +1,11 @@
-//Problem Link:
+//Problem Link: https://practice.geeksforgeeks.org/problems/deee0e8cf9910e7219f663c18d6d640ea0b87f87/1/
 
 package Day6;
 import java.util.*;
-public class IPL2021 {
+public class IPL2021Match {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        IPL2021 ob = new IPL2021();
+        IPL2021Match ob = new IPL2021Match();
         int n = in.nextInt();
         int arr[] = new int[n];
         for(int i = 0 ; i < n ; i ++){
