@@ -15,21 +15,19 @@ public class LongArithemeticProgression {
     }
 
     static int lengthOfLongestAP(int[] arr, int n) {
-        int max = 1;
-        for(int i = 1 ; i < n; i ++){
-            int d = arr[i] - arr[i-1];
-            int ap = arr[i-1] + (i)* d;
-            int c = 0;
-            int count = 1;
-            while(c < n){
-                if(ap == arr[c++]){
-                    count++;
-                }
-            }
-            if(max < count){
-                max = count;
+        HashMap<Integer, Integer>[] dp = new HashMap[n];
+        if(n <= 2){
+            return n;
+        }
+        int ans = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            dp[i] = new HashMap<>();
+            for (int j = 0; j < i; j++) {
+                int diff = arr[i] - arr[j];
+                dp[i].put(diff, dp[j].getOrDefault(diff, 1) + 1);
+                ans = Math.max(ans, dp[i].get(diff));
             }
         }
-        return max;
+        return ans;
     }
 }
