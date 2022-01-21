@@ -1,6 +1,6 @@
 //Problem Link: https://practice.geeksforgeeks.org/problems/leaders-in-an-array-1587115620/1/#
 
-package Day19;
+package Day20;
 import java.util.*;
 public class LeaderInArray {
     public static void main(String[] args) {
