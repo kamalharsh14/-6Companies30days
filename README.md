@@ -1,6 +1,10 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Hello, everyone🫂! A very very Happy New Year to everyone🎇🎊 !
+
+So I've decided to take the #6companies30days challenge which is being conducted by Arsh Goyal.
+
+I am very thankful to Arsh Goyal sir for providing us with this wonderful challenge where we will not only get to know about the level of questions of the ##'Dream Companies' but will also build a habit of coding.
 
 ## Folder Structure
 
