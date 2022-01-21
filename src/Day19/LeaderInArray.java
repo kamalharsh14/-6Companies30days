@@ -39,7 +39,6 @@ public class LeaderInArray {
                 list.add(arr[i]);
             }
         }
-
         return list;
     }
 }
