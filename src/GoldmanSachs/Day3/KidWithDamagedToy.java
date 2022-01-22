@@ -1,6 +1,6 @@
 //Problem Link: https://www.geeksforgeeks.org/distributing-m-items-circle-size-n-starting-k-th-position/
 
-package Day3;
+package GoldmanSachs.Day3;
 
 import java.util.Scanner;
 

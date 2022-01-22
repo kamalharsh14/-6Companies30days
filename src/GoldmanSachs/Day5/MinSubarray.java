@@ -1,6 +1,6 @@
 //Problem Link: https://leetcode.com/problems/minimum-size-subarray-sum/submissions/
 
-package Day5;
+package GoldmanSachs.Day5;
 import java.util.*;
 public class MinSubarray {
     public static void main(String[] args) {

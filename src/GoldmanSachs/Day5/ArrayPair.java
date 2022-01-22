@@ -1,6 +1,6 @@
 //Problem Link: https://practice.geeksforgeeks.org/problems/array-pair-sum-divisibility-problem3257/1
 
-package Day5;
+package GoldmanSachs.Day5;
 import java.util.*;
 public class ArrayPair {
     public static void main(String[] args) {

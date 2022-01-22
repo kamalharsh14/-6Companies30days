@@ -1,6 +1,6 @@
 //Problem Link: https://practice.geeksforgeeks.org/problems/decode-the-string2444/1
 
-package Day5;
+package GoldmanSachs.Day5;
 import java.util.*;
 public class DecodetheString {
     public static void main(String[] args) {

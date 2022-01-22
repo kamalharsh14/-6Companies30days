@@ -1,6 +1,6 @@
 //Problem Link: https://practice.geeksforgeeks.org/problems/find-missing-and-repeating2512/1/
 
-package Day4;
+package GoldmanSachs.Day4;
 
 import java.util.*;
 

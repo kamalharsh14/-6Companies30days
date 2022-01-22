@@ -1,6 +1,6 @@
 //Problem Link: https://practice.geeksforgeeks.org/problems/squares-in-nn-chessboard1801/1#
 
-package Day4;
+package GoldmanSachs.Day4;
 import java.util.*;
 public class SquaresinNChessBoard {
     public static void main(String[] args) {
