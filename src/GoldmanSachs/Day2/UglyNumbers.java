@@ -1,6 +1,6 @@
 //Problem Link: https://practice.geeksforgeeks.org/problems/ugly-numbers2254/1/#
 
-package Day2;
+package GoldmanSachs.Day2;
 
 import java.util.Scanner;
 

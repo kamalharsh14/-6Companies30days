@@ -1,6 +1,6 @@
 //Problem Link: https://practice.geeksforgeeks.org/problems/number-following-a-pattern3126/1#
 
-package Day3;
+package GoldmanSachs.Day3;
 
 import java.util.Scanner;
 import java.util.Stack;
