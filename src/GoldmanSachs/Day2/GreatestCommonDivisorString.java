@@ -1,5 +1,5 @@
 //Problem Link: https://leetcode.com/problems/greatest-common-divisor-of-strings/submissions/
-package Day2;
+package GoldmanSachs.Day2;
 
 import java.util.*;
 public class GreatestCommonDivisorString{

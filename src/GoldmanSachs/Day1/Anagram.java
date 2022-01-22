@@ -1,6 +1,6 @@
 //Problem Link: https://practice.geeksforgeeks.org/problems/print-anagrams-together/1/
 
-package Day1;
+package GoldmanSachs.Day1;
 import java.util.*;
 class Anagrams{
     public static void main(String[] args) {

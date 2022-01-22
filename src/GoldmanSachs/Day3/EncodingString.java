@@ -1,6 +1,6 @@
 //Problem Link: https://practice.geeksforgeeks.org/problems/total-decoding-messages1235/1/
 
-package Day3;
+package GoldmanSachs.Day3;
 
 import java.util.Scanner;
 
