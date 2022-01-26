@@ -1,6 +1,6 @@
-//Problem link: 
+//Problem link: https://leetcode.com/problems/capacity-to-ship-packages-within-d-days
 
-package Intuit.Day22;
+package Intuit.Day23;
 
 import java.util.Scanner;
 
